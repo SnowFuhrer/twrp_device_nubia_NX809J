@@ -15,6 +15,3 @@ PRODUCT_BRAND := REDMAGIC
 PRODUCT_MODEL := Red Magic 11 Pro
 PRODUCT_MANUFACTURER := nubia
 
-# Android 16 APEX dependencies
-#PRODUCT_APEX_SYSTEM_SERVER_JARS += \
-#    com.android.crashrecovery:service-crashrecovery

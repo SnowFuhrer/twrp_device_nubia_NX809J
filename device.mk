@@ -36,9 +36,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/twrp.flags:/root/system/etc/twrp.flags
 
-TARGET_RECOVERY_DEVICE_MODULES += \
-    vendor.qti.hardware.display.config-V7-ndk.so \
-    android.hardware.common-V2-ndk.so \
+#TARGET_RECOVERY_DEVICE_MODULES += \
+#    vendor.qti.hardware.display.config-V7-ndk.so \
+#    android.hardware.common-V2-ndk.so \
 
 # Shipping API level
 BOARD_SHIPPING_API_LEVEL := 36

@@ -28,11 +28,9 @@ QCOM_BOARD_PLATFORMS += sm8850
 # Kernel
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_BOOT_HEADER_VERSION := 4
-#BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
-#TARGET_KERNEL_ARCH := arm64
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 
 
@@ -133,7 +131,7 @@ TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_OVERRIDE_SYSTEM_PROPS := \
     "ro.build.date.utc;ro.bootimage.build.date.utc=ro.build.date.utc;ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
-TW_BACKUP_EXCLUSIONS := /data/fonts
+#TW_BACKUP_EXCLUSIONS := /data/fonts
 TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_FUSE_EXFAT := true
 TW_INCLUDE_FUSE_NTFS := true
@@ -153,7 +151,6 @@ TW_EXTRA_LANGUAGES := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TW_EXCLUDE_MTP := true
-#TWRP_EVENT_LOGGING := true
 
 TW_SCREEN_W := 1216
 TW_SCREEN_H := 2688
