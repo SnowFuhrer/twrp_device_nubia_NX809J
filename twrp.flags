@@ -1,0 +1,39 @@
+# mount point   fstype  device                                          device2             flags
+#Super
+/system_dlkm erofs system_dlkm flags=display="System DLKM";backupname="System DLKM";backup=1
+/vendor_dlkm erofs vendor_dlkm flags=display="Vendor DLKM";backupname="Vendor DLKM";backup=1
+
+# Boot Partitions (A/B)
+/boot           emmc    /dev/block/by-name/boot                 flags=display="Boot";slotselect;backup=1;flashimg=1
+/init_boot      emmc    /dev/block/by-name/init_boot            flags=display="Init Boot";slotselect;backup=1;flashimg=1
+/vendor_boot    emmc    /dev/block/by-name/vendor_boot          flags=display="Vendor Boot";slotselect;backup=1;flashimg=1
+/dtbo           emmc    /dev/block/by-name/dtbo                 flags=display="DTBO";slotselect;backup=1;flashimg=1
+/recovery       emmc    /dev/block/by-name/recovery             flags=display="Recovery";slotselect;backup=1;flashimg=1
+
+# AVB partitions
+/vbmeta         emmc    /dev/block/bootdevice/by-name/vbmeta                             flags=display="VBmeta";slotselect;backup=1
+/vbmeta_system  emmc    /dev/block/bootdevice/by-name/vbmeta_system                      flags=display="VBmeta System"slotselect;;backup=1
+
+# Firmware / DSP / Bluetooth
+/modem          emmc    /dev/block/bootdevice/by-name/modem                              flags=display="Modem";backupname="Modem";slotselect;backup=1
+/dsp            emmc    /dev/block/bootdevice/by-name/dsp                                flags=display="DSP";slotselect;backup=1
+/bluetooth      emmc    /dev/block/bootdevice/by-name/bluetooth                          flags=display="Bluetooth";slotselect;backup=1
+
+# EFS partitions
+/efs1       emmc    /dev/block/bootdevice/by-name/modemst1                              flags=backup=1;display="EFS"
+/efs2       emmc    /dev/block/bootdevice/by-name/modemst2                              flags=backup=1;subpartitionof=/efs1
+/efsc           emmc    /dev/block/bootdevice/by-name/fsc                               flags=backup=1;subpartitionof=/efs1
+/efsg           emmc    /dev/block/bootdevice/by-name/fsg                               flags=backup=1;subpartitionof=/efs1
+
+#Persist
+/persist ext4 /dev/block/bootdevice/by-name/persist                          flags=display="Persist";backupname="Persist";backup=1
+
+# Metadata
+/metadata           f2fs    /dev/block/by-name/metadata          flags=display="Metadata";wrappedkey
+
+# Bootloader
+/efisp      emmc    /dev/block/by-name/efisp                                            flags=display="Efisp";slotselect;backup=1;flashimg=1
+
+
+# External Storage
+/usb_otg        vfat    /devices/platform/soc/*.ssusb/*.dwc3/xhci-hcd.*.auto*           flags=display="USB OTG";storage;wipeingui;removable
